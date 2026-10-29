@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Leave a review | Lombok Pick-Up</title>
+<meta name="theme-color" content="#0e2a3b">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#0e2a3b;--sand:#f6f1e7;--paper:#fbf8f2;--brass:#c9a24f;--brass-d:#8a6a33;--ink:#101f2b;--muted:#5a6b78;--wa:#15803d;
+ --serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;min-height:100vh;overflow-x:clip}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+header{background:var(--deep);padding:18px 24px}
+header a{display:inline-flex;align-items:center;gap:12px;color:var(--sand);text-decoration:none;font-size:1.3rem;font-weight:300;line-height:1;white-space:nowrap}
+header b{font-weight:600}
+header img{height:48px;width:auto}
+main{max-width:620px;margin:0 auto;padding:44px 24px 72px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,6vw,2.7rem);line-height:1.1;text-wrap:balance}
+.lead{color:var(--muted);margin:12px 0 28px}
+.card{background:#fff;border-top:4px solid var(--brass);border-radius:6px;padding:28px;box-shadow:0 18px 40px -22px rgba(14,42,59,.45)}
+.trip{background:var(--sand);padding:10px 14px;border-radius:4px;font-size:.95rem;margin-bottom:22px}
+label.l,legend{display:block;font-weight:500;margin-bottom:8px;padding:0}
+fieldset{border:0;padding:0;min-width:0}
+.stars{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:2px;margin-bottom:6px}
+.stars input{position:absolute;opacity:0;width:1px;height:1px}
+.stars label{font-size:2.6rem;line-height:1;cursor:pointer;color:#d9d0bf;padding:0 3px}
+.stars label:hover,.stars label:hover~label,.stars input:checked~label{color:var(--brass)}
+.stars input:focus-visible+label{outline:3px solid var(--brass);outline-offset:2px;border-radius:4px}
+.hint{min-height:1.5em;color:var(--brass-d);font-weight:500;margin-bottom:20px}
+textarea,input[type=text]{width:100%;font:inherit;padding:12px 14px;border:1px solid #cfc7b8;border-radius:4px;background:#fff;color:var(--ink)}
+textarea{min-height:140px;resize:vertical}
+.field{margin-bottom:20px}
+.small{font-size:.88rem;color:var(--muted);margin-top:6px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;margin-bottom:22px}
+.consent input{margin-top:5px;width:18px;height:18px;flex:none}
+button{font:inherit;font-weight:600;width:100%;background:var(--deep);color:var(--sand);border:0;border-radius:4px;padding:15px;font-size:1.05rem;cursor:pointer}
+button:hover{background:#16384d}button[disabled]{opacity:.6;cursor:wait}
+.err{color:#b42318;margin:-8px 0 16px;font-size:.95rem}
+.msg{text-align:center;padding:12px 0}
+.msg h2{font-family:var(--serif);font-size:2rem;font-weight:600;margin-bottom:10px}
+.msg p{color:var(--muted)}
+.msg a{color:var(--wa);font-weight:500}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+[hidden]{display:none!important}
+:root{--deep:#081b36;--sand:#eaf3ff;--paper:#f5f9ff;--brass:#32b4ff;--brass-d:#1668d8;--ink:#0c1d36;--blue:#1f7bff;--blue2:#12b5ff;--line:#dbe7f6;--serif:"Plus Jakarta Sans",system-ui,sans-serif;--sans:"Plus Jakarta Sans",system-ui,sans-serif}
+body{background:#f1f7ff}header{background:#081b36}h1,.msg h2{font-weight:800;letter-spacing:-.02em}
+.card{border-top:0;border-radius:24px;box-shadow:0 30px 60px -30px rgba(12,29,54,.5)}
+input,select,textarea{border-radius:12px;border-color:var(--line)}
+button.send,.btn{background:linear-gradient(135deg,var(--blue),var(--blue2))!important;border-radius:14px!important}
+</style>
+</head>
+<body>
+<header><a href="/"><img src="/img/logo-header.png" width="217" height="52" alt="Lombok Pick-Up"></a></header>
+<main>
+  <h1>How was your ride?</h1>
+  <p class="lead">Thank you for travelling with us. A few words from you help other travellers choose, and help us improve.</p>
+
+  <div class="card">
+    <div id="loading" class="msg"><p>Loading…</p></div>
+
+    <div id="bad" class="msg" hidden>
+      <h2>This link doesn’t work</h2>
+      <p>The review link may be incomplete. Please open it again from your email, or <a href="https://wa.me/6285933553335" rel="noopener">message us on WhatsApp</a>.</p>
+    </div>
+
+    <div id="done" class="msg" hidden>
+      <h2>Thank you!</h2>
+      <p id="doneTxt">Your review is with us. We read every review before it is published on our website.</p>
+      <p style="margin-top:18px"><a href="/">Back to Lombok Pick-Up</a></p>
+    </div>
+
+    <form id="f" hidden novalidate>
+      <div class="trip" id="trip"></div>
+      <fieldset>
+        <legend>Your rating</legend>
+        <div class="stars" id="stars">
+          <input type="radio" name="rating" id="s5" value="5"><label for="s5" title="Excellent" aria-label="5 stars, excellent">★</label>
+          <input type="radio" name="rating" id="s4" value="4"><label for="s4" title="Very good" aria-label="4 stars, very good">★</label>
+          <input type="radio" name="rating" id="s3" value="3"><label for="s3" title="Good" aria-label="3 stars, good">★</label>
+          <input type="radio" name="rating" id="s2" value="2"><label for="s2" title="Fair" aria-label="2 stars, fair">★</label>
+          <input type="radio" name="rating" id="s1" value="1"><label for="s1" title="Poor" aria-label="1 star, poor">★</label>
+        </div>
+        <div class="hint" id="hint" aria-live="polite"></div>
+      </fieldset>
+      <div class="field">
+        <label class="l" for="text">Tell us about your ride <span style="font-weight:300;color:var(--muted)">(optional)</span></label>
+        <textarea id="text" maxlength="1000" placeholder="Your driver, the car, the pickup, anything you’d like to share."></textarea>
+      </div>
+      <div class="field">
+        <label class="l" for="name">Name shown with your review</label>
+        <input id="name" type="text" maxlength="60" autocomplete="given-name">
+        <p class="small">We suggest a first name and initial. We never show your email or phone number.</p>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Website <input id="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="consent"><input type="checkbox" id="consent"><span>I agree that Lombok Pick-Up may publish my review and name on lombokpickup.com.</span></label>
+      <p class="err" id="err" role="alert" hidden></p>
+      <button type="submit" id="go">Send my review</button>
+    </form>
+  </div>
+</main>
+<script>
+(function(){
+  var EP = "https://script.google.com/macros/s/AKfycbydRj_qSUQqrfoiMNRJdYpaX7sHhhD_BVdSvT30ZCBrEviKD6zqfIBTPv3OEup9_5SDdg/exec";
+  var q = new URLSearchParams(location.search), R = q.get("r") || "", K = q.get("k") || "";
+  function $(i){ return document.getElementById(i); }
+  function show(id){ ["loading","bad","done","f"].forEach(function(x){ $(x).hidden = (x !== id); }); }
+  var HINTS = {5:"Excellent",4:"Very good",3:"Good",2:"Fair",1:"Poor"};
+  Array.prototype.forEach.call(document.querySelectorAll('input[name=rating]'), function(r){
+    r.addEventListener("change", function(){ $("hint").textContent = HINTS[r.value] || ""; $("err").hidden = true; });
+  });
+  function shortName(n){
+    var p = String(n || "").trim().split(/\s+/).filter(Boolean);
+    if(!p.length) return "";
+    return p.length > 1 ? p[0] + " " + p[p.length - 1].charAt(0).toUpperCase() + "." : p[0];
+  }
+  if(!R || !K || !EP || !window.fetch){ show("bad"); return; }
+  fetch(EP + "?action=review&r=" + encodeURIComponent(R) + "&k=" + encodeURIComponent(K))
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(!d || !d.ok){ show("bad"); return; }
+      if(d.already){ $("doneTxt").textContent = "We already have your review for this trip. Thank you."; show("done"); return; }
+      $("trip").textContent = "Your trip: " + d.route + " → " + d.destination + (d.date ? " · " + d.date : "");
+      $("name").value = shortName(d.name);
+      show("f");
+    })
+    .catch(function(){ show("bad"); });
+
+  $("f").addEventListener("submit", function(e){
+    e.preventDefault();
+    var rating = (document.querySelector('input[name=rating]:checked') || {}).value;
+    var err = $("err");
+    if(!rating){ err.textContent = "Please choose a star rating."; err.hidden = false; return; }
+    if(!$("consent").checked){ err.textContent = "Please tick the box so we may publish your review."; err.hidden = false; return; }
+    err.hidden = true;
+    var btn = $("go"); btn.disabled = true; btn.textContent = "Sending…";
+    var ctl = window.AbortController ? new AbortController() : null, t = ctl ? setTimeout(function(){ ctl.abort(); }, 20000) : null;
+    fetch(EP, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, signal: ctl ? ctl.signal : undefined,
+      body: JSON.stringify({type:"review", ref:R, k:K, rating:Number(rating), name:$("name").value, text:$("text").value, consent:true, website:$("website").value})})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d && d.ok){ show("done"); window.scrollTo(0,0); return; }
+        if(d && d.error === "already"){ $("doneTxt").textContent = "We already have your review for this trip. Thank you."; show("done"); return; }
+        throw new Error("fail");
+      })
+      .catch(function(){
+        err.textContent = "Sorry, your review could not be sent. Please try again in a moment.";
+        err.hidden = false; btn.disabled = false; btn.textContent = "Send my review";
+      })
+      .then(function(){ if(t) clearTimeout(t); });
+  });
+})();
+</script>
+</body>
+</html>
