@@ -500,11 +500,11 @@ footer a{color:#7fd3ff}
 <button type="button" class="tx" id="tbkX" aria-label="Close">&times;</button>
 <h2 id="tbkT">Book this tour</h2><p class="tsub" id="tbkS"></p>
 <div style="position:absolute;left:-9999px" aria-hidden="true"><input id="tbkWeb" tabindex="-1" autocomplete="off"></div>
-<div class="f"><label for="tbkN">Guests</label><select id="tbkN"></select></div>
+<div class="f"><label id="tbkNl">Guests</label><div class="stp" role="group" aria-labelledby="tbkNl"><button type="button" id="tbkMi" aria-label="Fewer guests">&minus;</button><output id="tbkNv" aria-live="polite">2 guests</output><button type="button" id="tbkPl" aria-label="More guests">+</button></div><input type="hidden" id="tbkN" value="2"></div>
 <div class="f" id="tbkOptBox" hidden></div>
-<div class="f"><label for="tbkD">Tour date</label><input type="date" id="tbkD"></div>
-<div class="f"><label for="tbkTm">Pick-up time (you choose)</label><input type="time" id="tbkTm"></div>
-<div class="f"><label for="tbkP">Hotel or pick-up place</label><input id="tbkP" autocomplete="off" placeholder="Hotel name, area or address"></div>
+<div class="f"><label id="tbkDlb">Tour date</label><button type="button" class="tctl" id="tbkDb" aria-expanded="false" aria-labelledby="tbkDlb tbkDl"><span id="tbkDl">Choose a date</span><i aria-hidden="true">&#9662;</i></button><div class="pk" id="tbkDp" hidden></div><input type="hidden" id="tbkD"></div>
+<div class="f"><label id="tbkTlb">Pick-up time (you choose)</label><button type="button" class="tctl" id="tbkTb" aria-expanded="false" aria-labelledby="tbkTlb tbkTl"><span id="tbkTl">Choose a time</span><i aria-hidden="true">&#9662;</i></button><div class="pk" id="tbkTp" hidden></div><input type="hidden" id="tbkTm"></div>
+<div class="f"><label for="tbkP">Hotel or pick-up place</label><div class="tq" id="tbkQ"></div><input id="tbkP" autocomplete="off" placeholder="Hotel, villa, beach or area name"><div class="tsg" id="tbkSg" hidden></div><p class="thint" id="tbkPH" hidden></p></div>
 <p class="tpill" id="tbkPr" aria-live="polite"></p>
 <div class="f"><label for="tbkNm">Your name</label><input id="tbkNm" autocomplete="name"></div>
 <div class="f"><label for="tbkE">Email</label><input type="email" id="tbkE" autocomplete="email"></div>
@@ -514,7 +514,7 @@ footer a{color:#7fd3ff}
 <button class="book" type="submit" id="tbkB">Send booking request</button>
 <p class="tnote">Private tour: you choose the pick-up time. No payment needed to send a request. Free cancellation up to 24 hours before the tour. We confirm availability and the final details on WhatsApp. You pay your driver on the day.</p>
 </form><div id="tbkDone" hidden><div class="ok" aria-hidden="true">&#10003;</div><h2 id="tbkDH"></h2><p id="tbkDR"></p><p id="tbkDT"></p><a class="book open" id="tbkWa" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a><button type="button" class="again" id="tbkC">Close</button></div></dialog>
-<style>#tbk{border:0;border-radius:16px;padding:22px;max-width:460px;width:calc(100% - 24px);max-height:calc(100vh - 24px);overflow:auto;margin:auto;position:fixed;inset:0;color:var(--ink,#0b1f3a);background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.35)}#tbk::backdrop{background:rgba(8,20,40,.55)}#tbk h2{font-size:1.5rem;margin:0 0 4px}.tsub{color:#5a6b7d;margin:0 0 14px;font-size:.92rem}.tx{position:absolute;right:12px;top:8px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#5a6b7d}.tpill{background:#f1f6fd;border-radius:10px;padding:10px 12px;font-weight:600;margin:4px 0 14px;font-size:.95rem}.tmsg{color:#b42318;font-size:.9rem;margin:0 0 10px}.tnote{font-size:.8rem;color:#5a6b7d;margin:10px 0 0}#tbkDone{text-align:center}#tbkDone .ok{width:54px;height:54px;border-radius:50%;background:#1f8a4c;color:#fff;font-size:28px;line-height:54px;margin:4px auto 10px}#tbkDone .again{display:block;margin:12px auto 0;background:none;border:0;color:#5a6b7d;text-decoration:underline;cursor:pointer;font:inherit}.tbook{margin-top:16px;display:inline-block}</style><script>(function(){document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".tcb");if(!b)return;var c=b.closest(".tcar"),s=c.querySelector(".tcs");s.scrollBy({left:(b.classList.contains("tcn")?1:-1)*s.clientWidth,behavior:"smooth"});});function oc(){if(location.hash==="#credits"){var d=document.getElementById("credits");if(d)d.open=true;}}oc();addEventListener("hashchange",oc);})();</script>
+<style>#tbk{border:0;border-radius:16px;padding:22px;max-width:460px;width:calc(100% - 24px);max-height:calc(100vh - 24px);overflow:auto;margin:auto;position:fixed;inset:0;color:var(--ink,#0b1f3a);background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.35)}#tbk::backdrop{background:rgba(8,20,40,.55)}#tbk h2{font-size:1.5rem;margin:0 0 4px}.tsub{color:#5a6b7d;margin:0 0 14px;font-size:.92rem}.tx{position:absolute;right:12px;top:8px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#5a6b7d}.tpill{background:#f1f6fd;border-radius:10px;padding:10px 12px;font-weight:600;margin:4px 0 14px;font-size:.95rem}.tmsg{color:#b42318;font-size:.9rem;margin:0 0 10px}.tnote{font-size:.8rem;color:#5a6b7d;margin:10px 0 0}#tbkDone{text-align:center}#tbkDone .ok{width:54px;height:54px;border-radius:50%;background:#1f8a4c;color:#fff;font-size:28px;line-height:54px;margin:4px auto 10px}#tbkDone .again{display:block;margin:12px auto 0;background:none;border:0;color:#5a6b7d;text-decoration:underline;cursor:pointer;font:inherit}.tbook{margin-top:16px;display:inline-block}#tbk{font-size:16px;line-height:1.45;width:min(460px,calc(100vw - 24px))}#tbk *{box-sizing:border-box}#tbk .f{margin-bottom:12px}#tbk label{display:block;font-size:.88rem;font-weight:500;margin:0 0 5px}#tbk input:not([type=hidden]),#tbk textarea{display:block;width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;color:var(--ink)}#tbk textarea{resize:vertical}.stp{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:6px}.stp button{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:24px;line-height:1;cursor:pointer;color:var(--ink)}.stp button:disabled{opacity:.35;cursor:default}.stp output{font-weight:600}.tctl{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;color:var(--muted);cursor:pointer}.tctl.set{color:var(--ink);font-weight:500}.tctl i{font-style:normal;color:var(--muted)}.pk{margin-top:8px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}.cal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.cal-h b{font-weight:600}.cal-h button{width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:20px;line-height:1;cursor:pointer;color:var(--ink)}.cal-h button:disabled{opacity:.35;cursor:default}.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.cal-g span{text-align:center;font-size:.75rem;color:var(--muted);padding:4px 0}.cal-g button{height:40px;border:0;background:none;border-radius:10px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink);padding:0}.cal-g button:hover:not(:disabled){background:#eef5ff}.cal-g button.sel{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff}.cal-g button.today{box-shadow:inset 0 0 0 1px var(--blue)}.cal-g button:disabled{color:#b5c0cf;cursor:default}.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-height:224px;overflow:auto}.tg button{padding:10px 0;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}.tg button.rec{border-color:var(--blue);color:var(--blue);font-weight:600}.tg button.sel{background:linear-gradient(135deg,var(--blue),var(--blue2));border-color:transparent;color:#fff}.tgn{font-size:.8rem;color:var(--muted);margin:8px 0 0}.tq{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.tq button{padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font:inherit;font-size:.85rem;cursor:pointer;color:var(--ink)}.tq button:hover{border-color:var(--blue);color:var(--blue)}.tsg{margin-top:6px;border:1px solid var(--line);border-radius:12px;background:#fff;max-height:220px;overflow:auto}.tsg button{display:block;width:100%;text-align:left;font:inherit;font-size:15px;padding:11px 13px;background:none;border:0;border-bottom:1px solid #eef2f8;cursor:pointer;color:var(--ink)}.tsg button:hover{background:#eef5ff}.tsg button[data-g]::after{content:" \00b7  " attr(data-g);color:var(--muted);font-size:.85em}.tsg small{display:block;padding:6px 13px;color:var(--muted);font-size:11px}.thint{font-size:.82rem;color:#1f8a4c;margin:6px 0 0}</style><script>(function(){document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".tcb");if(!b)return;var c=b.closest(".tcar"),s=c.querySelector(".tcs");s.scrollBy({left:(b.classList.contains("tcn")?1:-1)*s.clientWidth,behavior:"smooth"});});function oc(){if(location.hash==="#credits"){var d=document.getElementById("credits");if(d)d.open=true;}}oc();addEventListener("hashchange",oc);})();</script>
 <p style="margin-top:36px"><a class="btn-gold" href="/#pesan">Book your pickup</a></p>
 </div></section>
 </main>
@@ -571,16 +571,74 @@ footer a{color:#7fd3ff}
     $("tbkPr").textContent=inq?"We send you the price on WhatsApp for this group size.":p;
     $("tbkB").textContent=inq?"Send price request":"Send booking request";
   }
+  var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], MONL=["January","February","March","April","May","June","July","August","September","October","November","December"], DAY=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], PLc=null, PLACES=null, PLD=false, calY=0, calM=0;
+  var GW={"Hotel":0,"Villa / stay":0,"Beach":1,"Attraction":1,"Nature":1,"Village / area":1,"Transport":1,"Restaurant":2,"Cafe / bar":2,"Surf / sport":2,"Mall / market":3,"Hospital / clinic":3,"Pharmacy":3,"Place":4};
+  var QP=[["Lombok Airport",-8.7573,116.2766],["Kuta",-8.8990,116.2850],["Senggigi",-8.4950,116.0460],["Mataram",-8.5830,116.1160],["Bangsal (Gili boats)",-8.3580,116.1450]];
+  function pad(n){return("0"+n).slice(-2);}
+  function iso(y,m,d){return y+"-"+pad(m+1)+"-"+pad(d);}
+  function todayIso(){var d=new Date();return iso(d.getFullYear(),d.getMonth(),d.getDate());}
+  function setN(n){ if(!cur) return; n=Math.max(1,Math.min(cur.max+1,n)); $("tbkN").value=n; $("tbkNv").textContent=n>cur.max?"More than "+cur.max:n+(n>1?" guests":" guest"); $("tbkMi").disabled=n<=1; $("tbkPl").disabled=n>cur.max; refresh(); }
+  function setDate(v){ $("tbkD").value=v; var l=$("tbkDl"); if(v){var p=v.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]); l.textContent=DAY[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear();} else l.textContent="Choose a date"; $("tbkDb").classList.toggle("set",!!v); }
+  function setTime(v){ $("tbkTm").value=v; $("tbkTl").textContent=v||"Choose a time"; $("tbkTb").classList.toggle("set",!!v); }
+  function closePk(){ ["tbkDp","tbkTp"].forEach(function(i){$(i).hidden=true;}); $("tbkDb").setAttribute("aria-expanded","false"); $("tbkTb").setAttribute("aria-expanded","false"); }
+  function drawCal(){
+    var p=$("tbkDp"), t=todayIso(), cm=new Date(); var first=new Date(calY,calM,1), lead=(first.getDay()+6)%7, days=new Date(calY,calM+1,0).getDate(), sel=$("tbkD").value;
+    var h='<div class="cal-h"><button type="button" data-cal="-1" aria-label="Previous month"'+((calY<cm.getFullYear()||(calY===cm.getFullYear()&&calM<=cm.getMonth()))?" disabled":"")+'>&lsaquo;</button><b>'+MONL[calM]+" "+calY+'</b><button type="button" data-cal="1" aria-label="Next month">&rsaquo;</button></div><div class="cal-g">';
+    ["Mo","Tu","We","Th","Fr","Sa","Su"].forEach(function(w){h+="<span>"+w+"</span>";});
+    for(var i=0;i<lead;i++) h+="<span></span>";
+    for(var d=1;d<=days;d++){var v=iso(calY,calM,d); h+='<button type="button" data-d="'+v+'"'+(v<t?" disabled":"")+(v===sel?' class="sel"':v===t?' class="today"':"")+">"+d+"</button>";}
+    p.innerHTML=h+"</div>";
+  }
+  function drawTime(){
+    var p=$("tbkTp"), cur0=$("tbkTm").value, rec=cur&&cur.time||"", h='<div class="tg">';
+    for(var m=240;m<=1320;m+=30){var v=pad(Math.floor(m/60))+":"+pad(m%60); h+='<button type="button" data-t="'+v+'"'+(v===cur0?' class="sel"':v===rec?' class="rec"':"")+">"+v+"</button>";}
+    p.innerHTML=h+'</div><p class="tgn">'+(rec?"Suggested start: "+rec+". ":"")+"Need another time? Add it in Notes.</p>";
+  }
+  function loadPlaces(){
+    if(PLACES||PLD||!window.fetch) return; PLD=true;
+    fetch("/data/places.json").then(function(r){return r.json();}).then(function(j){PLACES=j.p.map(function(p){return{n:p[0],k:norm(p[0]),la:p[1],lo:p[2],g:j.c[p[3]]};}); if($("tbkP").value.trim().length>1&&!PLc) placeSearch();}).catch(function(){PLD=false;});
+  }
+  function norm(t){return" "+String(t||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim()+" ";}
+  function localPlaces(q){
+    if(!PLACES) return []; var nq=norm(q).trim(), tk=nq.split(" ").filter(Boolean); if(nq.length<2) return [];
+    var hits=[]; PLACES.forEach(function(p){for(var i=0;i<tk.length;i++) if(p.k.indexOf(" "+tk[i])<0) return; hits.push({p:p,s:(p.k.indexOf(" "+tk[0])===0?0:10)+(GW[p.g]||0)*3+p.n.length/40});});
+    hits.sort(function(a,b){return a.s-b.s;}); return hits.slice(0,6).map(function(h){return h.p;});
+  }
+  function pickPlace(name,la,lo){ $("tbkP").value=name; PLc={name:name,lat:la,lng:lo}; $("tbkSg").hidden=true; var h=$("tbkPH"); h.textContent="✓ Pick-up point saved: "+name; h.hidden=false; }
+  var osmTm=0;
+  function placeSearch(){
+    var inp=$("tbkP"), box=$("tbkSg"), q=inp.value.trim(); box.innerHTML=""; box.hidden=true; clearTimeout(osmTm);
+    if(q.length<2) return; loadPlaces();
+    var l=localPlaces(q);
+    l.forEach(function(p){var b=document.createElement("button");b.type="button";b.textContent=p.n;b.setAttribute("data-g",p.g);b.addEventListener("mousedown",function(e){e.preventDefault();pickPlace(p.n,p.la,p.lo);});box.appendChild(b);});
+    if(l.length) box.hidden=false;
+    if(l.length<3&&q.length>=3&&window.fetch) osmTm=setTimeout(function(){
+      fetch("https://photon.komoot.io/api/?q="+encodeURIComponent(q+" Lombok")+"&limit=6&lang=en&lat=-8.65&lon=116.2&bbox=115.7,-9.2,116.9,-8.1").then(function(r){return r.json();}).then(function(j){
+        if(inp.value.trim()!==q||!j||!j.features) return; var seen={},n=0;
+        j.features.forEach(function(f){var pr=f.properties||{},c=f.geometry&&f.geometry.coordinates; if(!pr.name||!c||n>=4) return; var area=pr.district||pr.locality||pr.city||pr.county||"",lab=pr.name+(area&&area!==pr.name?", "+area:""); if(seen[lab]) return; seen[lab]=1;n++; var b=document.createElement("button");b.type="button";b.textContent=lab;b.addEventListener("mousedown",function(e){e.preventDefault();pickPlace(lab,c[1],c[0]);});box.appendChild(b);});
+        if(n){var cr=document.createElement("small");cr.textContent="Places © OpenStreetMap contributors";box.appendChild(cr);box.hidden=false;}
+      }).catch(function(){});
+    },450);
+  }
+  function initTourUi(){
+    $("tbkMi").addEventListener("click",function(){setN(+$("tbkN").value-1);}); $("tbkPl").addEventListener("click",function(){setN(+$("tbkN").value+1);});
+    $("tbkDb").addEventListener("click",function(){var open=$("tbkDp").hidden; closePk(); if(open){var cv=$("tbkD").value,d=cv?new Date(cv.split("-")[0],cv.split("-")[1]-1,1):new Date(); calY=d.getFullYear();calM=d.getMonth(); drawCal(); $("tbkDp").hidden=false; $("tbkDb").setAttribute("aria-expanded","true");}});
+    $("tbkDp").addEventListener("click",function(e){var b=e.target.closest("button"); if(!b||b.disabled) return; if(b.hasAttribute("data-cal")){calM+=+b.getAttribute("data-cal"); if(calM<0){calM=11;calY--;} if(calM>11){calM=0;calY++;} drawCal();} else if(b.hasAttribute("data-d")){setDate(b.getAttribute("data-d")); closePk();}});
+    $("tbkTb").addEventListener("click",function(){var open=$("tbkTp").hidden; closePk(); if(open){drawTime(); $("tbkTp").hidden=false; $("tbkTb").setAttribute("aria-expanded","true");}});
+    $("tbkTp").addEventListener("click",function(e){var b=e.target.closest("button[data-t]"); if(b){setTime(b.getAttribute("data-t")); closePk();}});
+    var q=$("tbkQ"); QP.forEach(function(p){var b=document.createElement("button");b.type="button";b.textContent=(p[0]==="Lombok Airport"?"✈️ ":"")+p[0];b.addEventListener("click",function(){pickPlace(p[0],p[1],p[2]);});q.appendChild(b);});
+    $("tbkP").addEventListener("input",function(){PLc=null;$("tbkPH").hidden=true;placeSearch();}); $("tbkP").addEventListener("focus",loadPlaces); $("tbkP").addEventListener("blur",function(){setTimeout(function(){$("tbkSg").hidden=true;},200);});
+  }
   function open(slug){
     cur=T.filter(function(t){return t.slug===slug;})[0]; if(!cur) return;
     $("tbkT").textContent="Book: "+cur.name; $("tbkS").textContent="Private tour. Choose your date and tell us where to pick you up.";
-    var s=$("tbkN"); s.innerHTML=""; for(var i=1;i<=cur.max;i++){var o=document.createElement("option");o.value=i;o.textContent=i+(i>1?" guests":" guest");s.appendChild(o);} var m=document.createElement("option");m.value=cur.max+1;m.textContent="More than "+cur.max;s.appendChild(m); s.value=cur.car?2:Math.min(2,cur.max);
+    setN(cur.car?2:Math.min(2,cur.max));
     var ob=$("tbkOptBox"); ob.innerHTML=""; ob.hidden=true;
     function add(id,txt){ob.hidden=false;var l=document.createElement("label");l.style.cssText="display:flex;gap:10px;align-items:center;font-weight:500;margin:4px 0;cursor:pointer";var c=document.createElement("input");c.type="checkbox";c.id=id;c.style.cssText="width:18px;height:18px";c.addEventListener("change",refresh);l.appendChild(c);l.appendChild(document.createTextNode(" "+txt));ob.appendChild(l);}
     if(cur.gopro) add("tbkG","GoPro Hero (extra "+(cur.gopro)+"K per booking)");
     if(cur.transport) add("tbkT2","Transport only, no tickets or extras ("+cur.transport+"K)");
     if(cur.slug==="lombok-waterfalls") add("tbkSade","Add Sasak village Sade (price confirmed on WhatsApp)");
-    $("tbkTm").value=""; $("tbkD").min=new Date().toISOString().slice(0,10); $("tbkD").value="";
+    setDate(""); setTime(""); closePk(); PLc=null; $("tbkP").value=""; $("tbkSg").hidden=true; $("tbkPH").hidden=true;
     $("tbkM").hidden=true; $("tbkForm").hidden=false; $("tbkDone").hidden=true; $("tbkB").disabled=false;
     refresh(); var d=$("tbk"); if(d.showModal) d.showModal(); else d.setAttribute("open","");
   }
@@ -588,7 +646,7 @@ footer a{color:#7fd3ff}
   function err(m){var e=$("tbkM");e.textContent=m;e.hidden=false;}
   document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-tour]"); if(b){e.preventDefault();open(b.getAttribute("data-tour"));}});
   document.addEventListener("DOMContentLoaded",function(){
-    $("tbkN").addEventListener("change",refresh); $("tbkX").addEventListener("click",function(){$("tbk").close();}); $("tbkC").addEventListener("click",function(){$("tbk").close();});
+    initTourUi(); $("tbkX").addEventListener("click",function(){$("tbk").close();}); $("tbkC").addEventListener("click",function(){$("tbk").close();});
     $("tbkForm").addEventListener("submit",function(e){
       e.preventDefault(); var v=function(i){return $(i).value.trim();};
       if(!v("tbkD")) return err("Please choose the tour date.");
@@ -599,8 +657,8 @@ footer a{color:#7fd3ff}
       if(v("tbkW").replace(/\D/g,"").length<8) return err("Please add your WhatsApp number with the country code.");
       $("tbkM").hidden=true; var n=+$("tbkN").value, o=opts(), price=priceText(), r=ref();
       var notes=[o.gopro?"GoPro Hero":"", o.transport?"Transport only":"", o.sade?"Add Sade village":"", v("tbkNt")].filter(Boolean).join(" | ");
-      var payload={ref:r,website:v("tbkWeb"),name:v("tbkNm"),email:v("tbkE"),whatsapp:v("tbkW"),route:v("tbkP"),destination:"TOUR: "+cur.name,flight:"",date:v("tbkD"),time:v("tbkTm"),passengers:String(n>cur.max?n+"+":n),suitcases:"",trip:"Tour",returnDate:"",returnTime:"",returnFlight:"",hotel:notes,price:price,distanceKm:"",pickupMap:"",dropoffMap:""};
-      var text=["Tour booking request "+r,"Tour: "+cur.name,"Date: "+v("tbkD")+" "+v("tbkTm"),"Guests: "+(n>cur.max?"more than "+cur.max:n),"Pick-up: "+v("tbkP"),"Name: "+v("tbkNm"),"Price: "+price].concat(notes?["Notes: "+notes]:[]).join("\n");
+      var payload={ref:r,website:v("tbkWeb"),name:v("tbkNm"),email:v("tbkE"),whatsapp:v("tbkW"),route:v("tbkP"),destination:"TOUR: "+cur.name,flight:"",date:v("tbkD"),time:v("tbkTm"),passengers:String(n>cur.max?n+"+":n),suitcases:"",trip:"Tour",returnDate:"",returnTime:"",returnFlight:"",hotel:notes,price:price,distanceKm:"",pickupMap:PLc?"https://www.google.com/maps/search/?api=1&query="+PLc.lat.toFixed(6)+","+PLc.lng.toFixed(6):"",dropoffMap:""};
+      var text=["Tour booking request "+r,"Tour: "+cur.name,"Date: "+v("tbkD")+" "+v("tbkTm"),"Guests: "+(n>cur.max?"more than "+cur.max:n),"Pick-up: "+v("tbkP"),"Name: "+v("tbkNm"),"Price: "+price].concat(PLc?["Map: https://www.google.com/maps/search/?api=1&query="+PLc.lat.toFixed(6)+","+PLc.lng.toFixed(6)]:[]).concat(notes?["Notes: "+notes]:[]).join("\n");
       var wa="https://wa.me/6285933553335?text="+encodeURIComponent(text);
       var B=$("tbkB"); B.disabled=true; B.textContent="Sending…";
       var ctl=window.AbortController?new AbortController():null, tm=ctl?setTimeout(function(){ctl.abort();},20000):0;
