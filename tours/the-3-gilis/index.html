@@ -529,7 +529,7 @@ footer a{color:#7fd3ff}
 <div class="f"><label id="tbkNl">Guests</label><div class="stp" role="group" aria-labelledby="tbkNl"><button type="button" id="tbkMi" aria-label="Fewer guests">&minus;</button><output id="tbkNv" aria-live="polite">2 guests</output><button type="button" id="tbkPl" aria-label="More guests">+</button></div><input type="hidden" id="tbkN" value="2"></div>
 <div class="f" id="tbkOptBox" hidden></div>
 <div class="f"><label id="tbkDlb">Tour date</label><button type="button" class="tctl" id="tbkDb" aria-expanded="false" aria-labelledby="tbkDlb tbkDl"><span id="tbkDl">Choose a date</span><i aria-hidden="true">&#9662;</i></button><div class="pk" id="tbkDp" hidden></div><input type="hidden" id="tbkD"></div>
-<div class="f"><label id="tbkTlb">Pick-up time (you choose)</label><button type="button" class="tctl" id="tbkTb" aria-expanded="false" aria-labelledby="tbkTlb tbkTl"><span id="tbkTl">Choose a time</span><i aria-hidden="true">&#9662;</i></button><div class="pk" id="tbkTp" hidden></div><input type="hidden" id="tbkTm"></div>
+<div class="f"><label for="tbkTx">Pick-up time (you choose)</label><input type="text" id="tbkTx" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="e.g. 08:00"><p class="tgn" id="tbkTn"></p><input type="hidden" id="tbkTm"></div>
 <div class="f"><label for="tbkP">Hotel or pick-up place</label><div class="tq" id="tbkQ"></div><input id="tbkP" autocomplete="off" placeholder="Hotel, villa, beach or area name"><div class="tsg" id="tbkSg" hidden></div><p class="thint" id="tbkPH" hidden></p></div>
 <p class="tpill" id="tbkPr" aria-live="polite"></p>
 <div class="f"><label for="tbkNm">Your name</label><input id="tbkNm" autocomplete="name"></div>
@@ -605,8 +605,8 @@ footer a{color:#7fd3ff}
   function todayIso(){var d=new Date();return iso(d.getFullYear(),d.getMonth(),d.getDate());}
   function setN(n){ if(!cur) return; n=Math.max(1,Math.min(cur.max+1,n)); $("tbkN").value=n; $("tbkNv").textContent=n>cur.max?"More than "+cur.max:n+(n>1?" guests":" guest"); $("tbkMi").disabled=n<=1; $("tbkPl").disabled=n>cur.max; refresh(); }
   function setDate(v){ $("tbkD").value=v; var l=$("tbkDl"); if(v){var p=v.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]); l.textContent=DAY[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear();} else l.textContent="Choose a date"; $("tbkDb").classList.toggle("set",!!v); }
-  function setTime(v){ $("tbkTm").value=v; $("tbkTl").textContent=v||"Choose a time"; $("tbkTb").classList.toggle("set",!!v); }
-  function closePk(){ ["tbkDp","tbkTp"].forEach(function(i){$(i).hidden=true;}); $("tbkDb").setAttribute("aria-expanded","false"); $("tbkTb").setAttribute("aria-expanded","false"); }
+  function setTime(v){ $("tbkTm").value=v; $("tbkTx").value=v; var r=cur&&cur.time||""; $("tbkTn").textContent=r?"Type your time, e.g. 0800. Suggested start: "+r+".":"Type your time, e.g. 0800."; }
+  function closePk(){ $("tbkDp").hidden=true; $("tbkDb").setAttribute("aria-expanded","false"); }
   function drawCal(){
     var p=$("tbkDp"), t=todayIso(), cm=new Date(); var first=new Date(calY,calM,1), lead=(first.getDay()+6)%7, days=new Date(calY,calM+1,0).getDate(), sel=$("tbkD").value;
     var h='<div class="cal-h"><button type="button" data-cal="-1" aria-label="Previous month"'+((calY<cm.getFullYear()||(calY===cm.getFullYear()&&calM<=cm.getMonth()))?" disabled":"")+'>&lsaquo;</button><b>'+MONL[calM]+" "+calY+'</b><button type="button" data-cal="1" aria-label="Next month">&rsaquo;</button></div><div class="cal-g">';
@@ -614,11 +614,6 @@ footer a{color:#7fd3ff}
     for(var i=0;i<lead;i++) h+="<span></span>";
     for(var d=1;d<=days;d++){var v=iso(calY,calM,d); h+='<button type="button" data-d="'+v+'"'+(v<t?" disabled":"")+(v===sel?' class="sel"':v===t?' class="today"':"")+">"+d+"</button>";}
     p.innerHTML=h+"</div>";
-  }
-  function drawTime(){
-    var p=$("tbkTp"), cur0=$("tbkTm").value, rec=cur&&cur.time||"", h='<div class="tg">';
-    for(var m=240;m<=1320;m+=30){var v=pad(Math.floor(m/60))+":"+pad(m%60); h+='<button type="button" data-t="'+v+'"'+(v===cur0?' class="sel"':v===rec?' class="rec"':"")+">"+v+"</button>";}
-    p.innerHTML=h+'</div><p class="tgn">'+(rec?"Suggested start: "+rec+". ":"")+"Need another time? Add it in Notes.</p>";
   }
   function loadPlaces(){
     if(PLACES||PLD||!window.fetch) return; PLD=true;
@@ -650,8 +645,8 @@ footer a{color:#7fd3ff}
     $("tbkMi").addEventListener("click",function(){setN(+$("tbkN").value-1);}); $("tbkPl").addEventListener("click",function(){setN(+$("tbkN").value+1);});
     $("tbkDb").addEventListener("click",function(){var open=$("tbkDp").hidden; closePk(); if(open){var cv=$("tbkD").value,d=cv?new Date(cv.split("-")[0],cv.split("-")[1]-1,1):new Date(); calY=d.getFullYear();calM=d.getMonth(); drawCal(); $("tbkDp").hidden=false; $("tbkDb").setAttribute("aria-expanded","true");}});
     $("tbkDp").addEventListener("click",function(e){var b=e.target.closest("button"); if(!b||b.disabled) return; if(b.hasAttribute("data-cal")){calM+=+b.getAttribute("data-cal"); if(calM<0){calM=11;calY--;} if(calM>11){calM=0;calY++;} drawCal();} else if(b.hasAttribute("data-d")){setDate(b.getAttribute("data-d")); closePk();}});
-    $("tbkTb").addEventListener("click",function(){var open=$("tbkTp").hidden; closePk(); if(open){drawTime(); $("tbkTp").hidden=false; $("tbkTb").setAttribute("aria-expanded","true");}});
-    $("tbkTp").addEventListener("click",function(e){var b=e.target.closest("button[data-t]"); if(b){setTime(b.getAttribute("data-t")); closePk();}});
+    $("tbkTx").addEventListener("input",function(){var t=this,d=t.value.replace(/\D/g,""); if(d.length&&+d.charAt(0)>2) d="0"+d; d=d.slice(0,4); var v=""; if(d.length>=3){var hh=d.slice(0,2),mm=d.slice(2); t.value=hh+":"+mm; if(mm.length===2&&+hh<=23&&+mm<=59) v=hh+":"+mm;} else t.value=d; $("tbkTm").value=v;});
+    $("tbkTx").addEventListener("blur",function(){var d=this.value.replace(/\D/g,""); if(d.length&&d.length<=2&&+d<=23){this.value=pad(+d)+":00"; $("tbkTm").value=this.value;}});
     var q=$("tbkQ"); QP.forEach(function(p){var b=document.createElement("button");b.type="button";b.textContent=(p[0]==="Lombok Airport"?"✈️ ":"")+p[0];b.addEventListener("click",function(){pickPlace(p[0],p[1],p[2]);});q.appendChild(b);});
     $("tbkP").addEventListener("input",function(){PLc=null;$("tbkPH").hidden=true;placeSearch();}); $("tbkP").addEventListener("focus",loadPlaces); $("tbkP").addEventListener("blur",function(){setTimeout(function(){$("tbkSg").hidden=true;},200);});
   }
