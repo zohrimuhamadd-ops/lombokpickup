@@ -362,7 +362,7 @@ footer a{color:#7fd3ff}
 .useg button{flex:1;padding:11px 8px;border:0;border-radius:9px;background:none;font:inherit;font-size:16px;cursor:pointer;color:var(--ink)}
 .useg button[aria-pressed="true"]{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-weight:600}
 .uctl{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;color:var(--muted);cursor:pointer}
-.uctl.set{color:var(--ink);font-weight:500}.uctl i{font-style:normal;color:var(--muted)}
+.uctl>span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.uctl i{display:flex;flex:none;margin-left:8px}.fixed span{white-space:nowrap}.uctl.set{color:var(--ink);font-weight:500}.uctl i{font-style:normal;color:var(--muted)}
 .upk{margin-top:8px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}
 .ucal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.ucal-h b{font-weight:600}
 .ucal-h button{width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:20px;line-height:1;cursor:pointer;color:var(--ink);padding:0}.ucal-h button:disabled{opacity:.35;cursor:default}
@@ -1345,7 +1345,7 @@ footer a{color:#7fd3ff}
   }
   function control(id,empty){
     var inp=$(id); if(!inp) return null; inp.style.display="none";
-    var btn=mk("button","uctl",'<span></span><i aria-hidden="true">&#9662;</i>'); btn.type="button"; btn.setAttribute("aria-expanded","false");
+    var btn=mk("button","uctl",'<span></span><i aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i>'); btn.type="button"; btn.setAttribute("aria-expanded","false");
     var lb=labelOf(inp); if(lb) btn.setAttribute("aria-labelledby",lb+" "+id+"Bv"); btn.firstChild.id=id+"Bv";
     var pk=mk("div","upk"); pk.hidden=true;
     inp.parentNode.insertBefore(btn,inp.nextSibling); btn.parentNode.insertBefore(pk,btn.nextSibling);
@@ -1357,7 +1357,7 @@ footer a{color:#7fd3ff}
     return api;
   }
   function dateField(id){
-    var c=control(id,"Choose a date"); if(!c) return; var y=0,m=0;
+    var c=control(id,"Pick a date"); if(!c) return; var y=0,m=0;
     c.text=function(v){ if(!v) return ""; var p=v.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]); return DAY[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear(); };
     function minIso(){ var v=c.inp.min; if(v) return v; var t=new Date(); return iso(t.getFullYear(),t.getMonth(),t.getDate()); }
     c.draw=function(){
