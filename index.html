@@ -352,6 +352,31 @@ footer a{color:#7fd3ff}
 
 
 @media (max-width:900px){.hero{padding:36px 0 370px;background:url(/img/hero.jpg) center bottom/100% auto no-repeat,#aab7c6}.hero::before{height:80%;background:linear-gradient(180deg,rgba(6,22,46,.85),rgba(6,22,46,.7))}}
+
+/* Custom controls: identical on desktop and mobile (no native dropdowns or pickers) */
+.ustp{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:5px}
+.ustp button{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:22px;line-height:1;cursor:pointer;color:var(--ink);padding:0}
+.ustp button:disabled{opacity:.35;cursor:default}
+.ustp output{font-weight:600;font-size:1.05rem;min-width:2.5ch;text-align:center}
+.useg{display:flex;gap:6px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:5px}
+.useg button{flex:1;padding:11px 8px;border:0;border-radius:9px;background:none;font:inherit;font-size:16px;cursor:pointer;color:var(--ink)}
+.useg button[aria-pressed="true"]{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-weight:600}
+.uctl{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;color:var(--muted);cursor:pointer}
+.uctl.set{color:var(--ink);font-weight:500}.uctl i{font-style:normal;color:var(--muted)}
+.upk{margin-top:8px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}
+.ucal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.ucal-h b{font-weight:600}
+.ucal-h button{width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:20px;line-height:1;cursor:pointer;color:var(--ink);padding:0}.ucal-h button:disabled{opacity:.35;cursor:default}
+.ucal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.ucal-g span{text-align:center;font-size:.75rem;color:var(--muted);padding:4px 0}
+.ucal-g button{height:40px;border:0;background:none;border-radius:10px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink);padding:0}
+.ucal-g button:hover:not(:disabled){background:#eef5ff}.ucal-g button.sel{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff}
+.ucal-g button.today{box-shadow:inset 0 0 0 1px var(--blue)}.ucal-g button:disabled{color:#b5c0cf;cursor:default}
+.utime{display:block;width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;color:var(--ink)}.f.bad .utime{border-color:#a4261c}
+.utg-l{font-size:.78rem;color:var(--muted);margin:2px 0 6px;font-weight:500}
+.utg{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:10px}
+.utg button{padding:10px 0;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.utg button.sel{background:linear-gradient(135deg,var(--blue),var(--blue2));border-color:transparent;color:#fff}
+.udone{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.f.bad .uctl,.f.bad .ustp,.f.bad .useg{border-color:#a4261c}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "TaxiService", "@id": "https://www.lombokpickup.com/#business", "name": "Lombok Pick-Up", "url": "https://www.lombokpickup.com/", "telephone": "+6285933553335", "address": {"@type": "PostalAddress", "addressLocality": "Kuta, Pujut", "addressRegion": "West Nusa Tenggara", "addressCountry": "ID"}, "geo": {"@type": "GeoCoordinates", "latitude": -8.87151, "longitude": 116.280637}, "hasMap": "https://maps.app.goo.gl/VvbdC7kpsPDUAJdt8", "sameAs": ["https://maps.app.goo.gl/VvbdC7kpsPDUAJdt8"], "email": "info@lombokpickup.com", "description": "Private airport transfers in Lombok, Indonesia. Fixed prices per car, free cancellation, pay on arrival.", "currenciesAccepted": "IDR", "paymentAccepted": "Cash, Bank transfer", "priceRange": "IDR 100,000 - 1,300,000", "areaServed": [{"@type": "AdministrativeArea", "name": "Lombok, West Nusa Tenggara, Indonesia"}, {"@type": "Place", "name": "Lombok International Airport"}, {"@type": "Place", "name": "Kuta"}, {"@type": "Place", "name": "Mandalika"}, {"@type": "Place", "name": "Senggigi"}, {"@type": "Place", "name": "Mataram"}, {"@type": "Place", "name": "Bangsal Harbour"}, {"@type": "Place", "name": "Selong Belanak"}, {"@type": "Place", "name": "Sekotong"}, {"@type": "Place", "name": "Tetebatu"}, {"@type": "Place", "name": "Sembalun"}, {"@type": "Place", "name": "Senaru"}], "contactPoint": {"@type": "ContactPoint", "contactType": "reservations", "telephone": "+6285933553335", "email": "info@lombokpickup.com"}}
@@ -1283,6 +1308,99 @@ footer a{color:#7fd3ff}
     var c=a.classList, where=c.contains("menu-wa")?"menu":c.contains("wa-link")?"header":c.contains("fab")?"float":c.contains("btn-inq")?"price enquiry":"page";
     try{ fetch(EPX,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"wa",page:location.pathname,where:where})}); }catch(x){}
   });
+</script>
+
+<script>
+/* Custom controls layer: replaces native selects, date and time pickers with identical controls on every device.
+   The original fields stay in the page (hidden) so the booking logic keeps reading and listening to them. */
+(function(){
+  var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], MONL=["January","February","March","April","May","June","July","August","September","October","November","December"], DAY=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], panels=[];
+  function $(i){ return document.getElementById(i); }
+  function pad(n){ return ("0"+n).slice(-2); }
+  function iso(y,m,d){ return y+"-"+pad(m+1)+"-"+pad(d); }
+  function fire(el){ ["input","change"].forEach(function(t){ el.dispatchEvent(new Event(t,{bubbles:true})); }); }
+  function closeAll(except){ panels.forEach(function(p){ if(p!==except) p.close(); }); }
+  function mk(tag,cls,html){ var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; }
+  function labelOf(el){ var l=document.querySelector('label[for="'+el.id+'"]'); if(l&&!l.id) l.id=el.id+"Lb"; return l?l.id:""; }
+
+  function stepper(id){
+    var s=$(id); if(!s) return; s.style.display="none";
+    var box=mk("div","ustp",'<button type="button" aria-label="Decrease">&minus;</button><output aria-live="polite"></output><button type="button" aria-label="Increase">+</button>');
+    box.setAttribute("role","group"); var lb=labelOf(s); if(lb) box.setAttribute("aria-labelledby",lb);
+    s.parentNode.insertBefore(box,s.nextSibling);
+    var out=box.querySelector("output"), m=box.children[0], p=box.children[2];
+    function draw(){ var i=s.selectedIndex; out.textContent=s.options[i].text; m.disabled=i<=0; p.disabled=i>=s.options.length-1; }
+    m.addEventListener("click",function(){ if(s.selectedIndex>0){ s.selectedIndex--; fire(s); draw(); } });
+    p.addEventListener("click",function(){ if(s.selectedIndex<s.options.length-1){ s.selectedIndex++; fire(s); draw(); } });
+    draw();
+  }
+  function segmented(id){
+    var s=$(id); if(!s) return; s.style.display="none";
+    var box=mk("div","useg"); box.setAttribute("role","group"); var lb=labelOf(s); if(lb) box.setAttribute("aria-labelledby",lb);
+    Array.prototype.forEach.call(s.options,function(o){
+      var b=mk("button"); b.type="button"; b.textContent=o.text; b.addEventListener("click",function(){ s.value=o.value; fire(s); draw(); }); box.appendChild(b);
+    });
+    function draw(){ Array.prototype.forEach.call(box.children,function(b,i){ b.setAttribute("aria-pressed",String(s.selectedIndex===i)); }); }
+    s.parentNode.insertBefore(box,s.nextSibling); draw();
+  }
+  function control(id,empty){
+    var inp=$(id); if(!inp) return null; inp.style.display="none";
+    var btn=mk("button","uctl",'<span></span><i aria-hidden="true">&#9662;</i>'); btn.type="button"; btn.setAttribute("aria-expanded","false");
+    var lb=labelOf(inp); if(lb) btn.setAttribute("aria-labelledby",lb+" "+id+"Bv"); btn.firstChild.id=id+"Bv";
+    var pk=mk("div","upk"); pk.hidden=true;
+    inp.parentNode.insertBefore(btn,inp.nextSibling); btn.parentNode.insertBefore(pk,btn.nextSibling);
+    var api={btn:btn,pk:pk,inp:inp,close:function(){ pk.hidden=true; btn.setAttribute("aria-expanded","false"); }};
+    panels.push(api);
+    api.show=function(){ btn.firstChild.textContent=api.text(inp.value)||empty; btn.classList.toggle("set",!!inp.value); };
+    btn.addEventListener("click",function(){ var open=pk.hidden; closeAll(); if(open){ api.draw(); pk.hidden=false; btn.setAttribute("aria-expanded","true"); } });
+    inp.addEventListener("change",api.show);
+    return api;
+  }
+  function dateField(id){
+    var c=control(id,"Choose a date"); if(!c) return; var y=0,m=0;
+    c.text=function(v){ if(!v) return ""; var p=v.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]); return DAY[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear(); };
+    function minIso(){ var v=c.inp.min; if(v) return v; var t=new Date(); return iso(t.getFullYear(),t.getMonth(),t.getDate()); }
+    c.draw=function(){
+      var mn=minIso(), sel=c.inp.value, t=new Date(), today=iso(t.getFullYear(),t.getMonth(),t.getDate());
+      if(!y){ var b=(sel||mn).split("-"); y=+b[0]; m=+b[1]-1; }
+      var mp=mn.split("-"), atMin=(y<+mp[0])||(y===+mp[0]&&m<=+mp[1]-1);
+      var lead=(new Date(y,m,1).getDay()+6)%7, days=new Date(y,m+1,0).getDate();
+      var h='<div class="ucal-h"><button type="button" data-n="-1" aria-label="Previous month"'+(atMin?" disabled":"")+'>&lsaquo;</button><b>'+MONL[m]+" "+y+'</b><button type="button" data-n="1" aria-label="Next month">&rsaquo;</button></div><div class="ucal-g">';
+      ["Mo","Tu","We","Th","Fr","Sa","Su"].forEach(function(w){ h+="<span>"+w+"</span>"; });
+      for(var i=0;i<lead;i++) h+="<span></span>";
+      for(var d=1;d<=days;d++){ var v=iso(y,m,d); h+='<button type="button" data-d="'+v+'"'+(v<mn?" disabled":"")+(v===sel?' class="sel"':v===today?' class="today"':"")+">"+d+"</button>"; }
+      c.pk.innerHTML=h+"</div>";
+    };
+    c.pk.addEventListener("click",function(e){
+      var b=e.target.closest("button"); if(!b||b.disabled) return;
+      if(b.hasAttribute("data-n")){ m+=+b.getAttribute("data-n"); if(m<0){ m=11; y--; } if(m>11){ m=0; y++; } c.draw(); }
+      else if(b.hasAttribute("data-d")){ c.inp.value=b.getAttribute("data-d"); fire(c.inp); y=0; c.close(); }
+    });
+    c.show();
+  }
+  function timeField(id){
+    var inp=$(id); if(!inp) return; inp.style.display="none";
+    var t=mk("input","utime"); t.type="text"; t.inputMode="numeric"; t.autocomplete="off"; t.maxLength=5; t.placeholder="e.g. 14:35"; t.setAttribute("aria-label",(document.querySelector('label[for="'+id+'"]')||{}).textContent||"Time");
+    var lb=labelOf(inp); if(lb) t.setAttribute("aria-labelledby",lb);
+    inp.parentNode.insertBefore(t,inp.nextSibling);
+    t.addEventListener("input",function(){
+      var d=t.value.replace(/\D/g,"");
+      if(d.length&&+d.charAt(0)>2) d="0"+d;
+      d=d.slice(0,4); var v="";
+      if(d.length>=3){ var hh=d.slice(0,2), mm=d.slice(2); t.value=hh+":"+mm; if(mm.length===2&&+hh<=23&&+mm<=59) v=hh+":"+mm; }
+      else t.value=d;
+      if(inp.value!==v){ inp.value=v; fire(inp); }
+    });
+    t.addEventListener("blur",function(){ var d=t.value.replace(/\D/g,""); if(d.length<=2&&d.length>0&&+d<=23){ t.value=pad(+d)+":00"; if(inp.value!==t.value){ inp.value=t.value; fire(inp); } } });
+  }
+  function init(){
+    stepper("penumpang"); stepper("koper"); segmented("trip");
+    dateField("tanggal"); timeField("jam"); dateField("rtanggal"); timeField("rjam");
+    var f=$("bookingForm");
+    if(f) f.addEventListener("submit",function(){ setTimeout(function(){ var b=f.querySelector(".f.bad"); if(b&&b.scrollIntoView) b.scrollIntoView({block:"center",behavior:"smooth"}); },80); });
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+})();
 </script>
 </body>
 </html>
