@@ -272,7 +272,7 @@ header{background:rgba(8,27,54,.82);backdrop-filter:saturate(1.4) blur(14px);-we
 .notice{background:var(--blue);color:#fff}
 
 /* hero */
-.lp-hero{background:linear-gradient(90deg,rgba(6,22,46,.88),rgba(6,22,46,.72)),url(/img/hero.jpg) center 70%/cover no-repeat,var(--deep);color:#fff}
+.lp-hero{background:linear-gradient(90deg,rgba(6,22,46,.82),rgba(6,22,46,.55)),url(/img/hero.jpg) center 70%/cover no-repeat,var(--deep);color:#fff}
 .hero{position:relative;background:linear-gradient(rgba(8,27,54,.22),rgba(8,27,54,.22)),url(/img/hero.jpg) center 40%/cover no-repeat,#8fa3b8;color:#fff}
 .hero::before{content:"";position:absolute;left:0;right:0;top:0;height:70%;background:linear-gradient(90deg,rgba(6,22,46,.82) 0%,rgba(6,22,46,.5) 55%,rgba(6,22,46,.12) 100%);-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent);pointer-events:none}
 .hero>.wrap{position:relative;z-index:1}
@@ -352,8 +352,6 @@ footer a{color:#7fd3ff}
 
 
 @media (max-width:900px){.hero{padding:36px 0 370px;background:url(/img/hero.jpg) center bottom/100% auto no-repeat,#aab7c6}.hero::before{height:80%;background:linear-gradient(180deg,rgba(6,22,46,.85),rgba(6,22,46,.7))}}
-.hero .assure li{background:rgba(6,22,46,.72);border-color:rgba(255,255,255,.14);color:#fff}
-.paxcheck{margin:0 0 12px;font-size:.92rem;font-weight:600;color:var(--ink,#0d2b2e)}
 
 /* Custom controls: identical on desktop and mobile (no native dropdowns or pickers) */
 .ustp{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:5px}
@@ -383,6 +381,22 @@ footer a{color:#7fd3ff}
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "TaxiService", "@id": "https://www.lombokpickup.com/#business", "name": "Lombok Pick-Up", "url": "https://www.lombokpickup.com/", "telephone": "+6285933553335", "address": {"@type": "PostalAddress", "addressLocality": "Kuta, Pujut", "addressRegion": "West Nusa Tenggara", "addressCountry": "ID"}, "geo": {"@type": "GeoCoordinates", "latitude": -8.87151, "longitude": 116.280637}, "hasMap": "https://maps.app.goo.gl/VvbdC7kpsPDUAJdt8", "sameAs": ["https://maps.app.goo.gl/VvbdC7kpsPDUAJdt8"], "email": "info@lombokpickup.com", "description": "Private airport transfers in Lombok, Indonesia. Fixed prices per car, free cancellation, pay on arrival.", "currenciesAccepted": "IDR", "paymentAccepted": "Cash, Bank transfer", "priceRange": "IDR 100,000 - 1,300,000", "areaServed": [{"@type": "AdministrativeArea", "name": "Lombok, West Nusa Tenggara, Indonesia"}, {"@type": "Place", "name": "Lombok International Airport"}, {"@type": "Place", "name": "Kuta"}, {"@type": "Place", "name": "Mandalika"}, {"@type": "Place", "name": "Senggigi"}, {"@type": "Place", "name": "Mataram"}, {"@type": "Place", "name": "Bangsal Harbour"}, {"@type": "Place", "name": "Selong Belanak"}, {"@type": "Place", "name": "Sekotong"}, {"@type": "Place", "name": "Tetebatu"}, {"@type": "Place", "name": "Sembalun"}, {"@type": "Place", "name": "Senaru"}], "contactPoint": {"@type": "ContactPoint", "contactType": "reservations", "telephone": "+6285933553335", "email": "info@lombokpickup.com"}}
 </script>
+<style>
+/* v68: mobile-first hero, tap targets, contrast */
+.linkbtn{display:inline-block;padding:12px 4px;margin:-12px -4px}
+.note{font-size:.88rem;color:#46586b}
+.assure li{background:rgba(6,22,46,.58);border-color:rgba(255,255,255,.22);backdrop-filter:none;-webkit-backdrop-filter:none}
+.eyebrow{font-size:.8rem;text-shadow:0 1px 6px rgba(0,20,50,.6)}
+.f input::placeholder,.f textarea::placeholder,#bookingForm input::placeholder,#bookingForm textarea::placeholder{color:#6b7a8c;opacity:1}
+@media (max-width:900px){
+  .hero{padding-top:22px}
+  .hero .lead{display:none}
+  h1{font-size:clamp(2rem,9vw,2.6rem);padding-top:0}
+  .eyebrow{margin-bottom:10px;font-size:.72rem;letter-spacing:.16em}
+  .quote{margin-top:12px;font-size:1.1rem}
+  .card{margin-top:18px}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#pesan">Skip to booking form</a>
@@ -448,7 +462,7 @@ footer a{color:#7fd3ff}
           <div class="f" data-f="penumpang">
             <label for="penumpang">Passengers</label>
             <select id="penumpang" name="penumpang">
-              <option>1</option><option selected>2</option><option>3</option><option>4</option>
+              <option>1</option><option>2</option><option selected>3</option><option>4</option>
               <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11+</option>
             </select>
           </div>
@@ -469,7 +483,7 @@ footer a{color:#7fd3ff}
         <p class="price-line" id="harga" aria-live="polite"></p>
         <p class="incl" id="incl" hidden>Included: driver, fuel, parking, an English-speaking driver, free waiting time at the airport and flight or boat monitoring.</p>
         <button class="book" type="button" id="goBtn" style="display:none"><span id="btnText">Book now</span></button>
-        <p class="note" id="note1">No payment and no credit card needed to book. Free cancellation up to 24 hours before arrival. Your booking is confirmed once we reply on WhatsApp. We use your details only to arrange your pickup.</p>
+        <p class="note" id="note1">No payment or card needed to book. Free cancellation up to 24 hours before arrival. We confirm on WhatsApp and use your details only to arrange your pickup. No app, no account.</p>
         <div id="details" hidden>
         <h3 class="dh">Your details</h3>
         <div class="row stack">
@@ -544,7 +558,6 @@ footer a{color:#7fd3ff}
           <label for="notes">Notes for the driver <span style="color:var(--muted);font-weight:400">(optional)</span></label>
           <textarea id="notes" name="notes" rows="3" maxlength="400" placeholder="Exact address or landmark, number of surfboards, anything we should know"></textarea>
         </div>
-        <p class="paxcheck" id="paxCheck" aria-live="polite"></p>
         <button class="book" type="submit" id="subBtn"><span id="subText">Send booking request</span></button>
         </div>
       <div class="sent" id="sent" hidden>
@@ -995,10 +1008,8 @@ footer a{color:#7fd3ff}
   rute.addEventListener("change", fillDest);
   $("lain").addEventListener("input", showPrice); $("lainDari").addEventListener("input", showPrice);
   tujuan.addEventListener("change", showPrice);
-  function paxCheck(){ var n = pax.value, k = $("koper").value; $("paxCheck").textContent = "Please check: " + n + (n === "1" ? " passenger, " : " passengers, ") + k + (k === "1" ? " large suitcase" : " large suitcases"); }
-  pax.addEventListener("change", function(){ showPrice(); paxCheck(); });
-  $("koper").addEventListener("change", function(){ showPrice(); paxCheck(); });
-  paxCheck();
+  pax.addEventListener("change", showPrice);
+  $("koper").addEventListener("change", showPrice);
   $("trip").addEventListener("change", function(){ toggleReturn(); showPrice(); });
   $("tanggal").addEventListener("change", toggleReturn);
   fillDest();
