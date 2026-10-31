@@ -272,7 +272,7 @@ header{background:rgba(8,27,54,.82);backdrop-filter:saturate(1.4) blur(14px);-we
 .notice{background:var(--blue);color:#fff}
 
 /* hero */
-.lp-hero{background:linear-gradient(90deg,rgba(6,22,46,.82),rgba(6,22,46,.55)),url(/img/hero.jpg) center 70%/cover no-repeat,var(--deep);color:#fff}
+.lp-hero{background:linear-gradient(90deg,rgba(6,22,46,.88),rgba(6,22,46,.72)),url(/img/hero.jpg) center 70%/cover no-repeat,var(--deep);color:#fff}
 .hero{position:relative;background:linear-gradient(rgba(8,27,54,.22),rgba(8,27,54,.22)),url(/img/hero.jpg) center 40%/cover no-repeat,#8fa3b8;color:#fff}
 .hero::before{content:"";position:absolute;left:0;right:0;top:0;height:70%;background:linear-gradient(90deg,rgba(6,22,46,.82) 0%,rgba(6,22,46,.5) 55%,rgba(6,22,46,.12) 100%);-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent);pointer-events:none}
 .hero>.wrap{position:relative;z-index:1}
@@ -352,6 +352,8 @@ footer a{color:#7fd3ff}
 
 
 @media (max-width:900px){.hero{padding:36px 0 370px;background:url(/img/hero.jpg) center bottom/100% auto no-repeat,#aab7c6}.hero::before{height:80%;background:linear-gradient(180deg,rgba(6,22,46,.85),rgba(6,22,46,.7))}}
+.hero .assure li{background:rgba(6,22,46,.72);border-color:rgba(255,255,255,.14);color:#fff}
+.paxcheck{margin:0 0 12px;font-size:.92rem;font-weight:600;color:var(--ink,#0d2b2e)}
 
 /* Custom controls: identical on desktop and mobile (no native dropdowns or pickers) */
 .ustp{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:5px}
@@ -446,7 +448,7 @@ footer a{color:#7fd3ff}
           <div class="f" data-f="penumpang">
             <label for="penumpang">Passengers</label>
             <select id="penumpang" name="penumpang">
-              <option>1</option><option>2</option><option selected>3</option><option>4</option>
+              <option>1</option><option selected>2</option><option>3</option><option>4</option>
               <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11+</option>
             </select>
           </div>
@@ -542,6 +544,7 @@ footer a{color:#7fd3ff}
           <label for="notes">Notes for the driver <span style="color:var(--muted);font-weight:400">(optional)</span></label>
           <textarea id="notes" name="notes" rows="3" maxlength="400" placeholder="Exact address or landmark, number of surfboards, anything we should know"></textarea>
         </div>
+        <p class="paxcheck" id="paxCheck" aria-live="polite"></p>
         <button class="book" type="submit" id="subBtn"><span id="subText">Send booking request</span></button>
         </div>
       <div class="sent" id="sent" hidden>
@@ -992,8 +995,10 @@ footer a{color:#7fd3ff}
   rute.addEventListener("change", fillDest);
   $("lain").addEventListener("input", showPrice); $("lainDari").addEventListener("input", showPrice);
   tujuan.addEventListener("change", showPrice);
-  pax.addEventListener("change", showPrice);
-  $("koper").addEventListener("change", showPrice);
+  function paxCheck(){ var n = pax.value, k = $("koper").value; $("paxCheck").textContent = "Please check: " + n + (n === "1" ? " passenger, " : " passengers, ") + k + (k === "1" ? " large suitcase" : " large suitcases"); }
+  pax.addEventListener("change", function(){ showPrice(); paxCheck(); });
+  $("koper").addEventListener("change", function(){ showPrice(); paxCheck(); });
+  paxCheck();
   $("trip").addEventListener("change", function(){ toggleReturn(); showPrice(); });
   $("tanggal").addEventListener("change", toggleReturn);
   fillDest();
