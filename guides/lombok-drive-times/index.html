@@ -552,6 +552,9 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
 <script>
 (function(){
   var EP="https://script.google.com/macros/s/AKfycbydRj_qSUQqrfoiMNRJdYpaX7sHhhD_BVdSvT30ZCBrEviKD6zqfIBTPv3OEup9_5SDdg/exec";
+  try{ var SID=""; try{ SID=sessionStorage.getItem("lpsid")||""; if(!SID){ SID=Math.random().toString(36).slice(2,10); sessionStorage.setItem("lpsid",SID); } }catch(e0){ SID=Math.random().toString(36).slice(2,10); }
+    var rh=""; try{ rh=document.referrer?new URL(document.referrer).hostname:""; }catch(e1){}
+    if(window.fetch && location.hostname.indexOf("lombokpickup.com")>-1) fetch(EP,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"ev",ev:"visit",sid:SID,page:location.pathname,dev:window.innerWidth<700?"mobile":"desktop",ref:rh})}); }catch(x1){}
   try{ fetch(EP+"?action=reviews").then(function(r){return r.json();}).then(function(d){ if(d&&d.reviews&&d.reviews.length){ var n=document.getElementById("navRev"); if(n) n.hidden=false; } }).catch(function(){}); }catch(x){}
   var h=document.querySelector("header"); function sh(){ if(!h.classList.contains("sm")) document.documentElement.style.setProperty("--hh",h.offsetHeight+"px"); } sh(); window.addEventListener("resize",sh); window.addEventListener("load",sh); function f(){ var y=window.scrollY; if(y>130) h.classList.add("sm"); else if(y<30) h.classList.remove("sm"); } window.addEventListener("scroll",f,{passive:true}); f();
   var btn=document.getElementById("menuBtn"), m=document.getElementById("menu");
