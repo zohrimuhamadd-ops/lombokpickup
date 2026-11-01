@@ -500,6 +500,15 @@ footer a{color:#7fd3ff}
 
 @media (max-width:900px){.lp-hero .assure{display:none}.lp-hero .lead{font-size:1rem}.lp-hero{padding-bottom:28px}}
 .crumb a{display:inline-block;padding:10px 0}
+
+/* v70: transparent header over hero, no seam */
+header{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;transition:background .25s,box-shadow .25s}
+header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;box-shadow:0 1px 0 rgba(255,255,255,.08)!important}
+.hero,.lp-hero{margin-top:calc(-1*var(--hh,113px))}
+.hero{padding-top:calc(var(--hh,113px) + 64px)}
+.lp-hero{padding-top:calc(var(--hh,113px) + 56px)}
+.lp-hero.pghero{padding-top:calc(var(--hh,113px) + 44px)}
+@media (max-width:900px){.hero{padding-top:calc(var(--hh,99px) + 22px)}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lombok Pick-Up", "item": "https://www.lombokpickup.com/"}, {"@type": "ListItem", "position": 2, "name": "Lombok Airport to Sekotong Transfer", "item": "https://www.lombokpickup.com/lombok-airport-to-sekotong/"}]}
@@ -625,7 +634,7 @@ footer a{color:#7fd3ff}
 (function(){
   var EP="https://script.google.com/macros/s/AKfycbydRj_qSUQqrfoiMNRJdYpaX7sHhhD_BVdSvT30ZCBrEviKD6zqfIBTPv3OEup9_5SDdg/exec";
   try{ fetch(EP+"?action=reviews").then(function(r){return r.json();}).then(function(d){ if(d&&d.reviews&&d.reviews.length){ var n=document.getElementById("navRev"); if(n) n.hidden=false; } }).catch(function(){}); }catch(x){}
-  var h=document.querySelector("header"); function f(){ var y=window.scrollY; if(y>130) h.classList.add("sm"); else if(y<30) h.classList.remove("sm"); } window.addEventListener("scroll",f,{passive:true}); f();
+  var h=document.querySelector("header"); function sh(){ if(!h.classList.contains("sm")) document.documentElement.style.setProperty("--hh",h.offsetHeight+"px"); } sh(); window.addEventListener("resize",sh); window.addEventListener("load",sh); function f(){ var y=window.scrollY; if(y>130) h.classList.add("sm"); else if(y<30) h.classList.remove("sm"); } window.addEventListener("scroll",f,{passive:true}); f();
   var btn=document.getElementById("menuBtn"), m=document.getElementById("menu");
   function close(){ m.classList.remove("open"); btn.setAttribute("aria-expanded","false"); }
   btn.addEventListener("click",function(){ var o=m.classList.toggle("open"); btn.setAttribute("aria-expanded",o?"true":"false"); });
