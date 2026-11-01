@@ -551,14 +551,14 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
           <p class="hint" id="retHint"></p>
         </div>
         <div class="f" id="forBox">
-          <label class="chk" style="display:flex;gap:10px;align-items:center;font-weight:500;cursor:pointer"><input type="checkbox" id="forOther" style="width:18px;height:18px"> I am booking for someone else</label>
+          <label class="chk" style="display:flex;gap:10px;align-items:center;font-weight:500;cursor:pointer"><input type="checkbox" name="forOther" id="forOther" style="width:18px;height:18px"> I am booking for someone else</label>
           <div id="forNameBox" hidden style="margin-top:8px"><label for="forName">Passenger name</label><input id="forName" name="forName" autocomplete="off" placeholder="Name of the person we pick up"></div>
         </div>
         <div class="f">
           <label>Extras <span style="color:var(--muted);font-weight:400">(optional, no charge. Surfboards travel on the roof)</span></label>
           <div class="xtra">
-            <label><input type="checkbox" class="xt" value="Surfboard(s)"> Surfboard(s)</label>
-            <label><input type="checkbox" class="xt" value="Bulky luggage / sports equipment"> Bulky luggage or sports equipment</label>
+            <label><input type="checkbox" class="xt" name="extra_surfboard" value="Surfboard(s)"> Surfboard(s)</label>
+            <label><input type="checkbox" class="xt" name="extra_bulky" value="Bulky luggage / sports equipment"> Bulky luggage or sports equipment</label>
           </div>
         </div>
         <div class="f">
@@ -1405,6 +1405,7 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
     var inp=$(id); if(!inp) return; inp.style.display="none";
     var t=mk("input","utime"); t.type="text"; t.inputMode="numeric"; t.autocomplete="off"; t.maxLength=5; t.placeholder="e.g. 14:35"; t.setAttribute("aria-label",(document.querySelector('label[for="'+id+'"]')||{}).textContent||"Time");
     var lb=labelOf(inp); if(lb) t.setAttribute("aria-labelledby",lb);
+    t.id=id+"T"; t.name=id+"T"; var lf=document.querySelector('label[for="'+id+'"]'); if(lf) lf.setAttribute("for",t.id);
     inp.parentNode.insertBefore(t,inp.nextSibling);
     t.addEventListener("input",function(){
       var d=t.value.replace(/\D/g,"");
