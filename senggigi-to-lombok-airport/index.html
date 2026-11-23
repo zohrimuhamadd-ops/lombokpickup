@@ -516,12 +516,13 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is the transfer from Senggigi to Lombok Airport?", "acceptedAnswer": {"@type": "Answer", "text": "Prices are per car, not per person, and are shown at the top of this page. They include the driver and fuel. You pay on arrival in rupiah, by cash or bank transfer. For a return trip the price is twice the one-way price."}}, {"@type": "Question", "name": "How long does the drive take?", "acceptedAnswer": {"@type": "Answer", "text": "Usually about 1.5 hours, depending on traffic and exactly where you are going. We track your flight, so your driver adjusts if you land late."}}, {"@type": "Question", "name": "Which car do I need for my group and luggage?", "acceptedAnswer": {"@type": "Answer", "text": "A private MPV suits up to 4 passengers (1 to 2 passengers: up to 4 large suitcases, 3 passengers: up to 5, 4 passengers: up to 3). For 5 to 10 passengers, or when you have more luggage, we send a minibus. For more than 10 passengers we arrange two cars and confirm the price on WhatsApp."}}, {"@type": "Question", "name": "Can I bring surfboards?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, at no extra charge. Boards travel on the roof of the car, so they do not take space from passengers or suitcases. Tell us how many boards you have when you book."}}, {"@type": "Question", "name": "Can I cancel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, free of charge up to 24 hours before your arrival. No deposit and no credit card are needed to book."}}]}
 </script>
+<style>.menu a.lang{border:1px solid currentColor;border-radius:6px;padding:2px 9px;font-weight:700;font-size:.85em;opacity:.9;white-space:nowrap}.menu a.lang:hover{opacity:1}.langbar{position:fixed;left:0;right:0;bottom:0;z-index:99;background:#081b36;color:#fff;padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:15px;box-shadow:0 -6px 24px rgba(0,0,0,.25)}.langbar a,.langbar button{font:inherit;border-radius:8px;padding:8px 16px;text-decoration:none;cursor:pointer}.langbar a{background:#1f7bff;color:#fff;font-weight:700}.langbar button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
     <div><a class="logo" href="/"><img class="mark" src="/img/logo-header.png" width="217" height="52" alt="Lombok Pick-Up"></a></div>
-    <nav class="menu" id="menu" aria-label="Main"><a href="/#pesan">Transfer</a><a href="/prices/">Prices</a><a href="/routes/">Routes</a><a href="/tours/">Tours</a><a href="/reviews/" id="navRev" hidden>Reviews</a><a href="/faq/">FAQ</a><a href="/find-us/">Find us</a><a class="menu-wa" href="https://wa.me/6285933553335" target="_blank" rel="noopener">Chat on WhatsApp</a></nav>
+    <nav class="menu" id="menu" aria-label="Main"><a href="/#pesan">Transfer</a><a href="/prices/">Prices</a><a href="/routes/">Routes</a><a href="/tours/">Tours</a><a href="/reviews/" id="navRev" hidden>Reviews</a><a href="/faq/">FAQ</a><a href="/find-us/">Find us</a><a class="lang" href="/id/" hreflang="id" lang="id" title="Bahasa Indonesia">ID</a><a class="menu-wa" href="https://wa.me/6285933553335" target="_blank" rel="noopener">Chat on WhatsApp</a></nav>
     <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     <a class="wa-link" href="https://wa.me/6285933553335" target="_blank" rel="noopener"><span class="x">Chat on </span>WhatsApp</a>
   </div>
@@ -648,6 +649,22 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
     var where=a.classList.contains("menu-wa")?"menu":a.classList.contains("wa-link")?"header":a.classList.contains("fab")?"float":a.classList.contains("cta")?"price card":a.classList.contains("sec")?"price card":"page";
     try{ fetch(EP,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"wa",page:location.pathname,where:where})}); }catch(x){}
   });
+})();
+</script>
+<script>
+(function(){
+  var map={"/":"/id/","/prices/":"/id/harga/","/faq/":"/id/faq/","/about/":"/id/tentang-kami/"};
+  try{ document.addEventListener("click",function(e){ var a=e.target.closest&&e.target.closest("a.lang"); if(a){ try{ localStorage.setItem("lp_lang",a.getAttribute("hreflang")); }catch(x){} } }); }catch(x){}
+  try{
+    var nl=(navigator.language||"").toLowerCase(); if(nl.indexOf("id")!==0) return;
+    if(localStorage.getItem("lp_lang")) return;
+    var to=map[location.pathname]||"/id/";
+    var bar=document.createElement("div"); bar.className="langbar"; bar.setAttribute("role","region"); bar.setAttribute("aria-label","Bahasa");
+    var sp=document.createElement("span"); sp.textContent="Tampilkan situs dalam Bahasa Indonesia?";
+    var yes=document.createElement("a"); yes.href=to; yes.lang="id"; yes.hreflang="id"; yes.textContent="Ya, Bahasa Indonesia"; yes.addEventListener("click",function(){ try{ localStorage.setItem("lp_lang","id"); }catch(x){} });
+    var no=document.createElement("button"); no.type="button"; no.textContent="Tetap English"; no.addEventListener("click",function(){ try{ localStorage.setItem("lp_lang","en"); }catch(x){} bar.remove(); });
+    bar.appendChild(sp); bar.appendChild(yes); bar.appendChild(no); document.body.appendChild(bar);
+  }catch(x){}
 })();
 </script>
 </body>

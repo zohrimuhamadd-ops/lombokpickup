@@ -512,12 +512,16 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lombok Pick-Up", "item": "https://www.lombokpickup.com/"}, {"@type": "ListItem", "position": 2, "name": "About Lombok Pick-Up", "item": "https://www.lombokpickup.com/about/"}]}
 </script>
+<style>.menu a.lang{border:1px solid currentColor;border-radius:6px;padding:2px 9px;font-weight:700;font-size:.85em;opacity:.9;white-space:nowrap}.menu a.lang:hover{opacity:1}.langbar{position:fixed;left:0;right:0;bottom:0;z-index:99;background:#081b36;color:#fff;padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:15px;box-shadow:0 -6px 24px rgba(0,0,0,.25)}.langbar a,.langbar button{font:inherit;border-radius:8px;padding:8px 16px;text-decoration:none;cursor:pointer}.langbar a{background:#1f7bff;color:#fff;font-weight:700}.langbar button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}</style>
+<link rel="alternate" hreflang="en" href="https://www.lombokpickup.com/about/">
+<link rel="alternate" hreflang="id" href="https://www.lombokpickup.com/id/tentang-kami/">
+<link rel="alternate" hreflang="x-default" href="https://www.lombokpickup.com/about/">
 </head>
 <body>
 <header>
   <div class="wrap nav">
     <div><a class="logo" href="/"><img class="mark" src="/img/logo-header.png" width="217" height="52" alt="Lombok Pick-Up"></a></div>
-    <nav class="menu" id="menu" aria-label="Main"><a href="/#pesan">Transfer</a><a href="/prices/">Prices</a><a href="/routes/">Routes</a><a href="/tours/">Tours</a><a href="/reviews/" id="navRev" hidden>Reviews</a><a href="/faq/">FAQ</a><a href="/find-us/">Find us</a><a class="menu-wa" href="https://wa.me/6285933553335" target="_blank" rel="noopener">Chat on WhatsApp</a></nav>
+    <nav class="menu" id="menu" aria-label="Main"><a href="/#pesan">Transfer</a><a href="/prices/">Prices</a><a href="/routes/">Routes</a><a href="/tours/">Tours</a><a href="/reviews/" id="navRev" hidden>Reviews</a><a href="/faq/">FAQ</a><a href="/find-us/">Find us</a><a class="lang" href="/id/tentang-kami/" hreflang="id" lang="id" title="Bahasa Indonesia">ID</a><a class="menu-wa" href="https://wa.me/6285933553335" target="_blank" rel="noopener">Chat on WhatsApp</a></nav>
     <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     <a class="wa-link" href="https://wa.me/6285933553335" target="_blank" rel="noopener"><span class="x">Chat on </span>WhatsApp</a>
   </div>
@@ -564,5 +568,21 @@ header.sm{background:rgba(8,27,54,.94)!important;backdrop-filter:blur(14px)!impo
 })();
 </script>
 
+<script>
+(function(){
+  var map={"/":"/id/","/prices/":"/id/harga/","/faq/":"/id/faq/","/about/":"/id/tentang-kami/"};
+  try{ document.addEventListener("click",function(e){ var a=e.target.closest&&e.target.closest("a.lang"); if(a){ try{ localStorage.setItem("lp_lang",a.getAttribute("hreflang")); }catch(x){} } }); }catch(x){}
+  try{
+    var nl=(navigator.language||"").toLowerCase(); if(nl.indexOf("id")!==0) return;
+    if(localStorage.getItem("lp_lang")) return;
+    var to=map[location.pathname]||"/id/";
+    var bar=document.createElement("div"); bar.className="langbar"; bar.setAttribute("role","region"); bar.setAttribute("aria-label","Bahasa");
+    var sp=document.createElement("span"); sp.textContent="Tampilkan situs dalam Bahasa Indonesia?";
+    var yes=document.createElement("a"); yes.href=to; yes.lang="id"; yes.hreflang="id"; yes.textContent="Ya, Bahasa Indonesia"; yes.addEventListener("click",function(){ try{ localStorage.setItem("lp_lang","id"); }catch(x){} });
+    var no=document.createElement("button"); no.type="button"; no.textContent="Tetap English"; no.addEventListener("click",function(){ try{ localStorage.setItem("lp_lang","en"); }catch(x){} bar.remove(); });
+    bar.appendChild(sp); bar.appendChild(yes); bar.appendChild(no); document.body.appendChild(bar);
+  }catch(x){}
+})();
+</script>
 </body>
 </html>
